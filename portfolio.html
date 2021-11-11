@@ -24,7 +24,7 @@
     h1 {
         display: flex;
         align-items: center;
-        color: rgb(0, 0, 0);
+        color: rgb(253, 253, 253);
         flex: 1;
         margin: 0;
     }
@@ -37,7 +37,7 @@
     }
     a {
         text-decoration: none;
-        color: rgb(0, 0, 0);
+        color: rgb(255, 255, 255);
     }
 
     /* main container near to image */
@@ -64,14 +64,40 @@
     h2, h3 {
         margin: 0px;
     }
+
+     /* portfolio styles */
+     .content h1 {
+                color: rgb(255, 255, 255);
+            }
+            
+            #portfolio {
+                list-style-type: none;
+                padding-left: 0;
+            }
+            
+            #portfolio li {
+                background: #fff;
+                padding: 10px;
+                border-radius: 10px;
+                margin-bottom: 10px;
+            }
+            
+            #portfolio li:hover {
+                background: #eee;
+            } 
+            
+            #portfolio a {
+                text-decoration: none;
+                color: #454545;
+            }
       </style>
     </head>
     <body>
       <!-- All Contents Go Here-->
-      <div id= "all contents"> 
+      <div id= "all-contents"> 
 
         <nav> 
-          <h1> Samanhta Jones's Website</h1>
+          <h1><a href = "index.html"> Samantha Jones's Website</a></h1>
           <ul> 
             <li>
               <a href = "index.html"> Home </a>
@@ -83,8 +109,14 @@
         </nav>
 
         <main>
-          
-
+          <div class="content">
+            <h1>Portfolio</h1>
+            <ul id="portfolio">
+              <li><a href="projects/platformer/">Platformer : A cannon - dodging, collectible - grabbing adventure game for Halleb0t</a></li>
+              <li><a href="projects/bouncing-box/">Bouncing Box : A project that gives you a taste of game development on the web </a></li>
+              <li><a href="projects/circularity/">Circularity : A motion poem using random number generation and velocity applied to circle shapes...</a></li>
+            </ul>
+          </div>
         </main>
 
       </div>
