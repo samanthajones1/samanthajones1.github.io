@@ -39,7 +39,7 @@
         // example:
         createPlatform(500,200, 0.4);//6th
         createPlatform(550, 500, 0.5);//2nd
-        createPlatform(220, 580, 0.5);// 1st
+        createPlatform(200, 580, 0.5);// 1st
         createPlatform(220, 410, 0.8);// 3rd
         createPlatform(50, 330, 0.5);// 4th
         createPlatform(300, 250, 0.4);//5th

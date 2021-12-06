@@ -14,7 +14,8 @@
         game.load.image('kennedi', './asset/collectable/kennedi-head.png');
         game.load.image('max', './asset/collectable/max-head.png');
         game.load.image('tree', './asset/collectable/tree.png');
-        game.load.image('tree', './asset/collectable/tree.png');
+        game.load.image('present', './asset/collectable/present.png');
+        game.load.image('mistletoe', './asset/collectable/mistletoe.png');
         game.load.atlas('halle', './asset/halle/phaser-json-array/halle.png', './asset/halle/phaser-json-array/halle.json');
     };
 })(window);

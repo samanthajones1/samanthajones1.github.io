@@ -10,7 +10,9 @@
         steve: {assetKey: 'steve', points: 30},
         grace: {assetKey: 'grace', points: 40},
         kennedi: {assetKey: 'kennedi', points: 50},
-        tree: {assetKey: 'tree', points: 150}
+        tree: {assetKey: 'tree', points: 150},
+        present: {assetKey: 'present', points: 50},
+        mistletoe: {assetKey: 'mistletoe', points: 60}
     };
     
     /**
@@ -39,11 +41,11 @@
         // ALL YOUR CODE GOES BELOW HERE ///////////////////////////////////////
         
         // example: 
-        createCollectable(type.steve, 90, 170, 6, 0.7);
-        createCollectable(type.grace, 650, 430, 6, 0.7);
-        createCollectable(type.kennedi, 320, 350, 6, 0.7);
-        createCollectable(type.kennedi, 320, 350, 6, 0.7);
-        createCollectable(type.tree, 750, 50, 2, 0.2);
+        createCollectable(type.mistletoe, 90, 170, 6, 0.7);
+        createCollectable(type.mistletoe, 650, 430, 6, 0.7);
+        createCollectable(type.present, 400, 200, 6, 0.7);
+        createCollectable(type.present, 320, 350, 6, 0.7);
+        createCollectable(type.tree, 750, 30, 2, 0.2);
         
         // ALL YOUR CODE GOES ABOVE HERE ///////////////////////////////////////
         ////////////////////////////////////////////////////////////////////////
