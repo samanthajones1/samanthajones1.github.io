@@ -26,7 +26,7 @@ var background = function (window) {
         var background;
         
         // ANIMATION VARIABLES HERE:
-        
+        var tree;
      
         // called at the start of game and whenever the page is resized
         // add objects for display in background. draws each image added to the background once
@@ -36,16 +36,34 @@ var background = function (window) {
             // TODO: 2 - Part 2
             // this fills the background with a obnoxious yellow
             // you should modify this to suit your game
-            var backgroundFill = draw.rect(canvasWidth,canvasHeight,'yellow');
-            background.addChild(backgroundFill);
+            var backgroundFill = draw.rect(canvasWidth,canvasHeight,'purple'); //creates a var called backgroundFill and stores a rectraingle that acts as out background 
+            background.addChild(backgroundFill); //adds background to the canas so we can see it
             
             // TODO: 3 - Add a moon and starfield
             
+            var moon = draw.bitmap('img/moon.png'); // var that holds the picture of the moon
+                moon.x = canvasWidth - 300; // holds the x value ( left to right)
+                moon.y = groundY - 300; //holds the y value (up and down)
+                moon.scaleX = .5; //changes the x scale of the moeom
+                moon.scaleY = .5; //changes the y scale of the moon 
+                background.addChild(moon); // adds the moon to the background 
+
+                for (;;){
+                    var circle = draw.circle(10,'white','LightGray',2);// a var called circle that holds each cricle
+                    circle.x = canvasWidth*Math.random();
+                    circle.y = groundY*Math.random();                               
+                    background.addChild(circle);
+
+                }
             
             // TODO 5: Part 1 - Add buildings!     Q: This is before TODO 4 for a reason! Why?
             
             
             // TODO 4: Part 1 - Add a tree
+            tree = draw.bitmap('img/tree.png');
+            tree.x = canvasWidth - 300;
+            tree.y = groundY - 200;
+            background.addChild(tree);
             
             
         } // end of render function - DO NOT DELETE
