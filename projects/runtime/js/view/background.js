@@ -27,6 +27,7 @@ var background = function (window) {
         
         // ANIMATION VARIABLES HERE:
         var tree;
+        var buildings = [];
      
         // called at the start of game and whenever the page is resized
         // add objects for display in background. draws each image added to the background once
@@ -48,17 +49,25 @@ var background = function (window) {
                 moon.scaleY = .5; //changes the y scale of the moon 
                 background.addChild(moon); // adds the moon to the background 
 
-                for (;;){
-                    var circle = draw.circle(10,'white','LightGray',2);// a var called circle that holds each cricle
-                    circle.x = canvasWidth*Math.random();
-                    circle.y = groundY*Math.random();                               
-                    background.addChild(circle);
+                for (var i = 0; i < 100; i++){
+                    var circle = draw.circle(5,'white','LightGray',2);// a var called circle that holds each cricle
+                    circle.x = canvasWidth*Math.random();// this puts the cirlce in random spots within the canvasWidth
+                    circle.y = groundY*Math.random(); // this puts the cirlce within the groundY                           
+                    background.addChild(circle); // puts the circle into the game 
 
                 }
             
             // TODO 5: Part 1 - Add buildings!     Q: This is before TODO 4 for a reason! Why?
-            
-            
+            // each run of loop, a building is created, and the code in pushed to the building array 
+            for(var i=0;i<10;i++) {
+                var buildingHeight = groundY*Math.random(); // declare var called buldingHeight that holds the height of the buldings i pixels 
+                var building = draw.rect(75,buildingHeight,'LightGray','Black',1); //var called building that holds each building
+                building.x = 300*i; // adds 200 pixels everytime it runs
+                building.y = groundY-buildingHeight; //sets the building's y position by subtracting the height of the buildings from groundY                
+                background.addChild(building);// adds building to background for viewng
+                buildings.push(building); // pushes the code of the indvual. buildings to the empty array, to be stored as a index 
+            }
+
             // TODO 4: Part 1 - Add a tree
             tree = draw.bitmap('img/tree.png');
             tree.x = canvasWidth - 300;
@@ -79,6 +88,10 @@ var background = function (window) {
             
             // TODO 4: Part 2 - Move the tree!
             
+            tree.x = tree.x - 5; // takes the current value of tree.x and suntracts 1 pixel 60/second to move tree left
+            if(tree.x < -200) { // rest sets the tree to the right, create a loop type affect 
+                tree.x = canvasWidth;
+            }
             
             // TODO 5: Part 2 - Parallax
             
