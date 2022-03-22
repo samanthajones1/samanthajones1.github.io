@@ -61,7 +61,8 @@ var background = function (window) {
             // each run of loop, a building is created, and the code in pushed to the building array 
             for(var i=0;i<10;i++) {
                 var buildingHeight = groundY*Math.random(); // declare var called buldingHeight that holds the height of the buldings i pixels 
-                var building = draw.rect(75,buildingHeight,'LightGray','Black',1); //var called building that holds each building
+                var colors = ['green', 'blue', 'red'];
+                var building = draw.rect(75,buildingHeight,colors,1); //var called building that holds each building
                 building.x = 300*i; // adds 200 pixels everytime it runs
                 building.y = groundY-buildingHeight; //sets the building's y position by subtracting the height of the buildings from groundY                
                 background.addChild(building);// adds building to background for viewng
@@ -94,6 +95,11 @@ var background = function (window) {
             }
             
             // TODO 5: Part 2 - Parallax
+
+            for (var i = 0; i < buildings.length; i++) {
+                buildings[i].x = buildings[i].x - 1;
+                
+            }
             
 
         } // end of update function - DO NOT DELETE
