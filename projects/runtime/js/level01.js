@@ -64,17 +64,18 @@ var level01 = function (window) {
     
             enemy.onPlayerCollision = function() { // this function detects if the enemy colldies with halle, and decreses the health 
                 console.log('The enemy has hit Halle');
+                game.changeIntgerity(-50);
             };
             
             enemy.onProjectileCollision = function(){ // detects if halle hits the enemy with her balls -- adds score and gets rid of enemies
-                game.increaseScore(10); // this is the score for hitting the enemy 
+                game.increaseScore(50); // this is the score for hitting the enemy 
                 enemy.fadeOut(); // after being hit, the enemy will fade out off the screen
     
             };
         }
 
         function createReward(x, y){
-            var reward = game.createGameItem('reward',25); // creates emeny game item and stores it in the varoable 
+            var reward = game.createGameItem('reward',25); // creates reward game item and stores it in the varoable 
             var blueSquare = draw.rect(50,50,'blue'); //draws a blueSquare and stores it to the varibale 
             blueSquare.x = -25;
             blueSquare.y = -25;
@@ -85,18 +86,14 @@ var level01 = function (window) {
             reward.velocityX = -1; // moves reward to the left
             reward.rotationalVelocity = 10; // roataes reward by 20 pilxes
     
-            reward.onPlayerCollision = function() { // this function detects if the enemy colldies with halle, and decreses the health 
-                console.log('The reward has hit Halle');
-                game.changeInterity(10);
+            reward.onPlayerCollision = function() { // this function detects if the reward colldies with halle
+                console.log('Halle has collected the rward');
+                game.changeIntegrity(10);
                 game.increaseScore(10);   
-                reward.fadeOut();
+                reward.shrink();
             
             };  
-            
-            reward.onProjectileCollision = function(){ // detects if halle hits the enemy with her balls -- adds score and gets rid of enemies
-                game.changeInterity(10);
-              
-            };
+        
         }
 
     
