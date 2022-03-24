@@ -64,7 +64,7 @@ var level01 = function (window) {
     
             enemy.onPlayerCollision = function() { // this function detects if the enemy colldies with halle, and decreses the health 
                 console.log('The enemy has hit Halle');
-                game.changeIntgerity(-50);
+                game.changeIntegrity(-20);
             };
             
             enemy.onProjectileCollision = function(){ // detects if halle hits the enemy with her balls -- adds score and gets rid of enemies
