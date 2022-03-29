@@ -37,9 +37,11 @@ var background = function (window) {
             // TODO: 2 - Part 2
             // this fills the background with a obnoxious yellow
             // you should modify this to suit your game
-            var backgroundFill = draw.rect(canvasWidth,canvasHeight,'purple'); //creates a var called backgroundFill and stores a rectraingle that acts as out background 
+            var backgroundFill = draw.rect(canvasWidth, canvasHeight - 490, 'purple') //creates a var called backgroundFill and stores a rectraingle that acts as out background  
+                        
             background.addChild(backgroundFill); //adds background to the canas so we can see it
-            
+      
+
             // TODO: 3 - Add a moon and starfield
             
             var moon = draw.bitmap('img/moon.png'); // var that holds the picture of the moon
@@ -70,10 +72,10 @@ var background = function (window) {
             }
 
             // TODO 4: Part 1 - Add a tree
-            tree = draw.bitmap('img/tree.png');
-            tree.x = canvasWidth - 300;
-            tree.y = groundY - 200;
-            background.addChild(tree);
+            tree = draw.bitmap('img/tree.png'); // gives the tree an image 
+            tree.x = canvasWidth - 300; // 
+            tree.y = groundY - 220; // changes the highet of the tree -- where it is on the y - axis 
+            background.addChild(tree); // push the tree to show on the game
             
             
         } // end of render function - DO NOT DELETE

@@ -16,17 +16,19 @@ var level01 = function (window) {
             "number": 1, 
             "speed": -3,
             "gameItems": [
-                { "type": "sawblade", "x": 400, "y": groundY - 50 } ,
-                { "type": "sawblade", "x": 600, "y": groundY - 50 },
-                { "type": "sawblade", "x": 900, "y": groundY - 50 },
+                { "type": "sawblade", "x": 400, "y": groundY - 110 } ,
+                { "type": "sawblade", "x": 1000, "y": groundY - 110 },
+                { "type": "sawblade", "x": 1500, "y": groundY - 110},
+                { "type": "sawblade", "x": 1800, "y": groundY - 110},
+                { "type": "sawblade", "x": 2500, "y": groundY - 110},
 
-                { "type": "enemy", "x": 400, "y": groundY - 50 } ,
-                { "type": "enemy", "x": 600, "y": groundY - 50 },
-                { "type": "enemy", "x": 800, "y": groundY - 50 },
+                { "type": "enemy", "x": 600, "y": groundY - 50 } ,
+                { "type": "enemy", "x": 1300, "y": groundY - 50 },
+                { "type": "enemy", "x": 1700, "y": groundY - 50 },
 
-                { "type": "reward", "x": 500, "y": groundY - 50 } ,
-                { "type": "reward", "x": 700, "y": groundY - 50 },
-                { "type": "reward", "x": 900, "y": groundY - 50 },
+                { "type": "reward", "x": 700, "y": groundY - 80 },
+                { "type": "reward", "x": 1200, "y": groundY - 80 },
+                { "type": "reward", "x": 1800, "y": groundY - 80 },
             ]
         };
         window.levelData = levelData;
@@ -53,21 +55,22 @@ var level01 = function (window) {
         function createEnemy(x, y){
             var enemy = game.createGameItem('enemy',25); // creates emeny game item and stores it in the varoable 
             var redSquare = draw.rect(50,50,'red'); //draws a red square and stores it to the varibale 
-            redSquare.x = -25;
-            redSquare.y = -25;
-            enemy.addChild(redSquare);
+            redSquare.x = -25; //the size of one side of the square
+            redSquare.y = -25; //the size of one side of the square 
+            enemy.addChild(redSquare); //add the square to the game
             enemy.x = x;
             enemy.y = y;
-            game.addGameItem(enemy);
+            game.addGameItem(enemy); //adds the enemy to the game items 
             enemy.velocityX = -1; // moves enemy to the left
             enemy.rotationalVelocity = 10; // roataes enemy by 20 pilxes
     
             enemy.onPlayerCollision = function() { // this function detects if the enemy colldies with halle, and decreses the health 
-                console.log('The enemy has hit Halle');
-                game.changeIntegrity(-20);
+                console.log('The enemy has hit Halle'); //console logs this message 
+                game.changeIntegrity(-20); // decreses heatlh by 20 
             };
             
             enemy.onProjectileCollision = function(){ // detects if halle hits the enemy with her balls -- adds score and gets rid of enemies
+                console.log('Halle shot an enemy'); // console logs this mesages after Halle shots an enemy 
                 game.increaseScore(50); // this is the score for hitting the enemy 
                 enemy.fadeOut(); // after being hit, the enemy will fade out off the screen
     
@@ -87,13 +90,13 @@ var level01 = function (window) {
             reward.rotationalVelocity = 10; // roataes reward by 20 pilxes
     
             reward.onPlayerCollision = function() { // this function detects if the reward colldies with halle
-                console.log('Halle has collected the rward');
-                game.changeIntegrity(10);
-                game.increaseScore(10);   
-                reward.shrink();
+                console.log('Halle has collected the reward'); //will say in the console log to show what halle has done
+                game.changeIntegrity(10); // increases heatlh by 10
+                game.increaseScore(10);   // increases score by 10 
+                reward.shrink(); // makes the reward shrink after halle collectes it 
             
-            };  
-        
+            }; 
+
         }
 
     
