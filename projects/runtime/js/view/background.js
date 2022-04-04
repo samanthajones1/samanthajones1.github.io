@@ -39,10 +39,10 @@ var background = function (window) {
             // you should modify this to suit your game
 
             var backgroundFill = draw.bitmap('../../Images/summer-forest.webp') //draws the image
-                backgroundFill.x = canvasWidth - 1500; //width of the what I want
-                backgroundFill.y = groundY - 400; //hieight/up and  down
-                backgroundFill.scaleX = 3; //changes the witdth of the image
-                backgroundFill.scaleY = 1.5; //changes the hieght  of the image
+                backgroundFill.x = canvasWidth - 1920; //width of the what I want
+                backgroundFill.y = groundY - 500; //hieight/up and  down
+                backgroundFill.scaleX = 4; //changes the witdth of the image
+                backgroundFill.scaleY = 2; //changes the hieght  of the image
                 background.addChild(backgroundFill);  // adds the background 
         
       
@@ -75,7 +75,7 @@ var background = function (window) {
             // each run of loop, a tree is created, and the code in pushed to the building array 
             for(var i = 0; i < 20; i++) {
 
-                var treesHeight = groundY - 20; //height of the tree
+                var treesHeight = groundY - 150; //height of the tree
 
                // var colors = ['green', 'blue', 'red'];
                 

@@ -28,11 +28,11 @@ var level01 = function (window) {
 
                 { "type": "thorn", "x": 700, "y": groundY },
                 { "type": "thorn", "x": 2000, "y": groundY },
-                { "type": "thorn", "x": 3300, "y": groundY },
+                { "type": "thorn", "x": 3500, "y": groundY },
                 { "type": "thorn", "x": 4000, "y": groundY },
 
                 { "type": "goblin", "x": 900, "y": groundY - 50 },
-                { "type": "goblin", "x": 4000, "y": groundY - 50 },
+                { "type": "goblin", "x": 3000, "y": groundY - 50 },
                 { "type": "goblin", "x": 7000, "y": groundY - 50 },
 
                 { "type": "dimond", "x": 900, "y": groundY - 80 },
