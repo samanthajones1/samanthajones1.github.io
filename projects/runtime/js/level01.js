@@ -27,23 +27,25 @@ var level01 = function (window) {
                 { "type": "crow", "x": 4400, "y": groundY - 120 },
 
                 { "type": "thorn", "x": 700, "y": groundY },
-                { "type": "thorn", "x": 2000, "y": groundY },
+                { "type": "thorn", "x": 2200, "y": groundY },
                 { "type": "thorn", "x": 3500, "y": groundY },
-                { "type": "thorn", "x": 4000, "y": groundY },
+                { "type": "thorn", "x": 4500, "y": groundY },
 
                 { "type": "goblin", "x": 900, "y": groundY - 50 },
                 { "type": "goblin", "x": 3000, "y": groundY - 50 },
                 { "type": "goblin", "x": 7000, "y": groundY - 50 },
 
-                { "type": "dimond", "x": 900, "y": groundY - 80 },
-                { "type": "dimond", "x": 1700, "y": groundY - 80 },
-                { "type": "dimond", "x": 3500, "y": groundY - 80 },
-                { "type": "dimond", "x": 4500, "y": groundY - 80 },
-                { "type": "dimond", "x": 8500, "y": groundY - 80 },
-                { "type": "dimond", "x": 8600, "y": groundY - 80 },
-                { "type": "dimond", "x": 8700, "y": groundY - 80 },
+                { "type": "dimond", "x": 900, "y": groundY - 100 },
+                { "type": "dimond", "x": 1700, "y": groundY - 100 },
+                { "type": "dimond", "x": 3500, "y": groundY - 100 },
+                { "type": "dimond", "x": 4500, "y": groundY - 100 },
+                { "type": "dimond", "x": 8500, "y": groundY - 100 },
+                { "type": "dimond", "x": 8600, "y": groundY - 100 },
+                { "type": "dimond", "x": 8700, "y": groundY - 100 },
 
                 { "type": "orge", "x": 8000, "y": groundY - 80 },
+
+                { "type": "bag", "x": 8200, "y": groundY - 80 },
             ]
         };
         window.levelData = levelData;
@@ -150,7 +152,7 @@ var level01 = function (window) {
         }
 
         function createOrge(x, y) {
-            var orge = game.createGameItem('Orge', 30); // creates emeny game item and stores it in the varoable 
+            var orge = game.createGameItem('Orge', 50); // creates emeny game item and stores it in the varoable 
             var orgeImage = draw.bitmap('../../Images/orge.png'); //adds the image of the goblin
                 orgeImage.scaleX = 0.50; //chnages the size -- width
                 orgeImage.scaleY = 0.50; //changes the size -- height
@@ -182,7 +184,7 @@ var level01 = function (window) {
 
 
         function createDimond(x, y) {
-            var dimond = game.createGameItem('dimond', 25); // creates reward game item and stores it in the varoable 
+            var dimond = game.createGameItem('dimond', 50); // creates reward game item and stores it in the varoable 
             var dimondImage = draw.bitmap('../../Images/dimond-gem.png'); //draws a blueSquare and stores it to the varibale 
             dimondImage.scaleX = 0.20; // changes the size of the image via width
             dimondImage.scaleY = 0.20; //chnages the size via height 
@@ -202,6 +204,31 @@ var level01 = function (window) {
                 game.changeIntegrity(10); // increases heatlh by 10
                 game.increaseScore(10);   // increases score by 10 
                 dimond.shrink(); // makes the reward shrink after halle collectes it 
+
+            };
+
+        }
+
+        function createBag(x, y) {
+            var bag = game.createGameItem('bag', 100); // creates reward game item and stores it in the varoable 
+            var bagImage = draw.bitmap('../../Images/bag of gems(1).png'); //draws a blueSquare and stores it to the varibale 
+            bagImage.scaleX = 0.20; // changes the size of the image via width
+            bagImage.scaleY = 0.20; //chnages the size via height 
+            bagImage.x = -21; // cmoes the image via x asix -- left and right
+            bagImage.y = -22; //moves the image via y axis -- up and down
+        
+            bag.addChild(bagImage); // add the image to the screen 
+            bag.x = x; //pareamentor 
+            bag.y = y; //parementor
+            game.addGameItem(bag); //adds the item to the game
+            bag.velocityX = -1; // moves reward to the left
+            bag.rotationalVelocity = 0; // roataes reward by 20 pilxes
+
+            bag.onPlayerCollision = function () { // this function detects if the reward colldies with halle
+                console.log('Halle has collected the reward'); //will say in the console log to show what halle has done
+                game.changeIntegrity(10); // increases heatlh by 10
+                game.increaseScore(10);   // increases score by 10 
+                bag.shrink(); // makes the reward shrink after halle collectes it 
 
             };
 
@@ -232,6 +259,10 @@ var level01 = function (window) {
 
             if (gameItem.type === 'orge') { //adds the item to the game y clarifings the type of item
                 createOrge(gameItem.x, gameItem.y) //runs the function with the new arguments 
+            }
+
+            if (gameItem.type === 'bag') { //adds the item to the game y clarifings the type of item
+                createBag(gameItem.x, gameItem.y) //runs the function with the new arguments 
             }
 
 
