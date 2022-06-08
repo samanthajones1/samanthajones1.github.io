@@ -25,7 +25,7 @@ body {
 /*   top: 100px;  */  /* Uncomment if you want to set a "starting" position */
 }
 
-#player2 {   /*TODO 1 -- 1b -- change #gameItem to #walker to met HTML change*/
+#runner {   /*TODO 1 -- 1b -- change #gameItem to #walker to met HTML change*/
   background-color: rgb(255, 0, 170);
   width: 70px;
   height: 70px;

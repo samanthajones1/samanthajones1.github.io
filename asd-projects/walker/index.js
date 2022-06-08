@@ -14,37 +14,39 @@ function runProgram(){
   // Game Item Objects
 
       //TODO 3 -- declare key varible with object -- as well ad the keys and their numbers 
-    var PLAYER1 = {
+    var walker = {
         LEFT: 37,
         UP: 38,
         RIGHT: 39, 
         DOWN: 40,
       };
   
-      var PLAYER2 = {
+      var runner = {
         A: 65,
         W: 87,
         D: 68, 
         S: 83,
       };
+
+      var boardWidth = board.width;
       
       //TODO 4
 
       //POSITIONS 
-      var PLAYER1X = 0; // the x-coordinate 
-      var PLAYER1Y = 0; // the y-coordinate 
+      var walkerX = 0; // the x-coordinate 
+      var walkerY = 0; // the y-coordinate 
 
       //SPEED 
-      var PLAYER1speedX = 0 ; // the x-axis
-      var PLAYER1speedY = 0; // the y-axis
+      var walkerspeedX = 0 ; // the x-axis
+      var walkerspeedY = 0; // the y-axis
 
     //POSITIONS 
-    var PLAYER2X = 0; // the x-coordinate 
-    var PLAYER2Y = 0; // the y-coordinate 
+    var runnerX = 0; // the x-coordinate 
+    var runnerY = 0; // the y-coordinate 
 
     //SPEED 
-    var PLAYER2speedX ; // the x-axis
-    var PLAYER2speedY ; // the y-axis
+    var runnerspeedX ; // the x-axis
+    var runnerspeedY ; // the y-axis
 
   // one-time setup
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
@@ -79,53 +81,55 @@ function runProgram(){
   /* TODO 2 --- changing the name of the function and adding console.log to check each key -- 2c */
   function handleKeyDown(event) {
     //Player one
-    if (event.which === PLAYER1.LEFT){ //TODO 3 -- getting the press function down for keys 
+    if (event.which === walker.LEFT){ //TODO 3 -- getting the press function down for keys 
       console.log('LEFT pressed');
     }
-    if (event.which === PLAYER1.UP){
+    if (event.which === walker.UP){
       console.log('UP pressed');
     }
-    if (event.which === PLAYER1.RIGHT){
+    if (event.which === walker.RIGHT){
       console.log('RIGHT pressed');
     }
-    if (event.which === PLAYER1.DOWN){
+    if (event.which === walker.DOWN){
       console.log('DOWN pressed');
     }
 
       //TODO 6 -- moving 
-    if (event.which === PLAYER1.LEFT) {
-      PLAYER1speedX = -5;
+    if (event.which === walker.LEFT) {
+      walkerspeedX = -5;
     } 
     
-    if (event.which === PLAYER1.UP) {
-      PLAYER1speedY = -5;
+    if (event.which === walker.UP) {
+      walkerspeedY = -5;
     }
     
-    if (event.which === PLAYER1.RIGHT) {
-      PLAYER1speedX = 5;
+    if (event.which === walker.RIGHT) {
+      walkerspeedX = 5;
     }
     
-    if (event.which === PLAYER1.DOWN) {
-      PLAYER1speedY = 5;
+    if (event.which === walker.DOWN) {
+      walkerspeedY = 5;
     }
     
+    
+
   }
 
   function handleKeyUp(event){
-    if (event.which === PLAYER1.LEFT) {
-      PLAYER1speedX = 0;
+    if (event.which === walker.LEFT) {
+      walkerspeedX = 0;
     } 
     
-    if (event.which === PLAYER1.UP) {
-      PLAYER1speedY = 0;
+    if (event.which === walker.UP) {
+      walkerspeedY = 0;
     }
     
-    if (event.which === PLAYER1.RIGHT) {
-      PLAYER1speedX = 0;
+    if (event.which === walker.RIGHT) {
+      walkerspeedX = 0;
     }
     
-    if (event.which === PLAYER1.DOWN) {
-      PLAYER1speedY = 0;
+    if (event.which === walker.DOWN) {
+      walkerspeedY = 0;
     }
     
   }
@@ -140,14 +144,16 @@ function runProgram(){
   //TODO 5 -- 5a - decalring functions 
   function repositionWalker(){
     
-    PLAYER1X += PLAYER1speedX;// update the position of the box along the x-axis
-    PLAYER1Y += PLAYER1speedY; // update the position of the box along the y-axis
+  
+    walkerX += walkerspeedX;// update the position of the box along the x-axis
+    walkerY += walkerspeedY; // update the position of the box along the y-axis
+
   }
 
   function redrawWalker(){
 
-    $("#walker").css("left", PLAYER1X);    // draw the box in the new location, positionX pixels away from the "left"
-    $("#walker").css("top", PLAYER1Y);    // draw the box in the new location, positionX pixels away from the "top"
+    $("#walker").css("left", walkerX);    // draw the box in the new location, positionX pixels away from the "left"
+    $("#walker").css("top", walkerY);    // draw the box in the new location, positionX pixels away from the "top"
 
   }
   
