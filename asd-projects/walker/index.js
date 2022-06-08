@@ -35,8 +35,8 @@ function runProgram(){
       var PLAYER1Y = 0; // the y-coordinate 
 
       //SPEED 
-      var PLAYER1speedX ; // the x-axis
-      var PLAYER1speedY ; // the y-axis
+      var PLAYER1speedX = 0 ; // the x-axis
+      var PLAYER1speedY = 0; // the y-axis
 
     //POSITIONS 
     var PLAYER2X = 0; // the x-coordinate 
@@ -53,6 +53,8 @@ function runProgram(){
 
 
   $(document).on('keydown',handleKeyDown);                           // change 'eventType' to the type of event you want to handle  
+
+  $(document).on('keyup',handleKeyUp);   
 
   ////////////////////////////////////////////////////////////////////////////////
   ///////////////////////// CORE LOGIC ///////////////////////////////////////////
@@ -76,39 +78,59 @@ function runProgram(){
 
   /* TODO 2 --- changing the name of the function and adding console.log to check each key -- 2c */
   function handleKeyDown(event) {
-    if (event.LEFT === PLAYER1.LEFT){ //TODO 3 -- getting the press function down for keys 
-      console.log('left pressed');
+    if (event.which === PLAYER1.LEFT){ //TODO 3 -- getting the press function down for keys 
+      console.log('LEFT pressed');
     }
-    if (event.UP === PLAYER1.UP){
+    if (event.which === PLAYER1.UP){
       console.log('UP pressed');
     }
-    if (event.RIGHT === PLAYER1.RIGHT){
+    if (event.which === PLAYER1.RIGHT){
       console.log('RIGHT pressed');
     }
-    if (event.DOWN === PLAYER1.DOWN){
+    if (event.which === PLAYER1.DOWN){
       console.log('DOWN pressed');
     }
 
       //TODO 6 -- moving 
-    if (event.LEFT === PLAYER1.LEFT) {
+    if (event.which === PLAYER1.LEFT) {
       PLAYER1speedX = -5;
-    }
+    } 
     
-    if (event.UP === PLAYER1.UP) {
+    if (event.which === PLAYER1.UP) {
       PLAYER1speedY = -5;
     }
     
-    if (event.RIGHT === PLAYER1.RIGHT) {
+    if (event.which === PLAYER1.RIGHT) {
       PLAYER1speedX = 5;
     }
     
-    if (event.DOWN === PLAYER1.DOWN) {
+    if (event.which === PLAYER1.DOWN) {
       PLAYER1speedY = 5;
     }
-
     
   }
 
+  function handleKeyUp(event){
+    if (event.which === PLAYER1.LEFT) {
+      PLAYER1speedX = 0;
+    } 
+    
+    if (event.which === PLAYER1.UP) {
+      PLAYER1speedY = 0;
+    }
+    
+    if (event.which === PLAYER1.RIGHT) {
+      PLAYER1speedX = 0;
+    }
+    
+    if (event.which === PLAYER1.DOWN) {
+      PLAYER1speedY = 0;
+    }
+    
+  }
+
+
+  }
  
   ////////////////////////////////////////////////////////////////////////////////
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
@@ -116,7 +138,8 @@ function runProgram(){
 
   //TODO 5 -- 5a - decalring functions 
   function repositionWalker(){
-    PLAYER1X += PLAYER1speedX; // update the position of the box along the x-axis
+    
+    PLAYER1X += PLAYER1speedX;// update the position of the box along the x-axis
     PLAYER1Y += PLAYER1speedY; // update the position of the box along the y-axis
   }
 

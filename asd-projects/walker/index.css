@@ -1,14 +1,16 @@
 
 body {
-  background-color: darkgreen;
+  background-image: url("https://i.pinimg.com/originals/a1/76/71/a176716205951f374b88a00d77d89a3e.jpg");
 }
 
 #board {
-  width: 440px;
-  height: 440px;
+  left: 690px;
+  top: 100px;
+  width: 500px;
+  height: 500px;
   border: 1px solid white;
   background-color: black;
-  position: relative;
+  position: relative
 }
 
 #walker {   /*TODO 1 -- 1b -- change #gameItem to #walker to met HTML change*/
