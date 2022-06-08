@@ -78,6 +78,7 @@ function runProgram(){
 
   /* TODO 2 --- changing the name of the function and adding console.log to check each key -- 2c */
   function handleKeyDown(event) {
+    //Player one
     if (event.which === PLAYER1.LEFT){ //TODO 3 -- getting the press function down for keys 
       console.log('LEFT pressed');
     }
@@ -130,7 +131,7 @@ function runProgram(){
   }
 
 
-  }
+  
  
   ////////////////////////////////////////////////////////////////////////////////
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
@@ -157,5 +158,4 @@ function runProgram(){
     // turn off event handlers
     $(document).off();
   }
-  
 }
