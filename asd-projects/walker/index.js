@@ -80,7 +80,8 @@ function runProgram(){
 
   /* TODO 2 --- changing the name of the function and adding console.log to check each key -- 2c */
   function handleKeyDown(event) {
-    //Player one
+    
+    /////////////////// WALKER ///////////////////////////////////////
     if (event.which === walker.LEFT){ //TODO 3 -- getting the press function down for keys 
       console.log('LEFT pressed');
     }
@@ -111,11 +112,43 @@ function runProgram(){
       walkerspeedY = 5;
     }
     
+    ////////////////// RUNNER ///////////////////////////////
+    if (event.which === runner.A){ //TODO 3 -- getting the press function down for keys 
+      console.log('A pressed');
+    }
+    if (event.which === runner.W){
+      console.log('W pressed');
+    }
+    if (event.which === runner.D){
+      console.log('D pressed');
+    }
+    if (event.which === runner.S){
+      console.log('S pressed');
+    }
+
+      //TODO 6 -- moving 
+    if (event.which === runner.A) {
+      walkerspeedX = -5;
+    } 
+    
+    if (event.which === runner.W) {
+      walkerspeedY = -5;
+    }
+    
+    if (event.which === runner.D) {
+      walkerspeedX = 5;
+    }
+    
+    if (event.which === runner.S) {
+      walkerspeedY = 5;
+    }
     
 
   }
 
   function handleKeyUp(event){
+
+    ///// WALKER ////////////
     if (event.which === walker.LEFT) {
       walkerspeedX = 0;
     } 
@@ -132,6 +165,27 @@ function runProgram(){
       walkerspeedY = 0;
     }
     
+      /////////// RUNNER //////////////////
+    if (event.which === runner.A) {
+      runnerspeedX = 0;
+    } 
+    
+    if (event.which === runner.W) {
+      runnerspeedY = 0;
+    }
+    
+    if (event.which === runner.D) {
+      runnerspeedX = 0;
+    }
+    
+    if (event.which === runner.S) {
+      runnerspeedY = 0;
+    }
+    
+  }
+
+
+
   }
 
 
@@ -164,4 +218,4 @@ function runProgram(){
     // turn off event handlers
     $(document).off();
   }
-}
+
