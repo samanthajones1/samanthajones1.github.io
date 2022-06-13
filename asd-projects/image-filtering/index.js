@@ -38,9 +38,27 @@ function applyAndRender() {
 //1a
 function applyFliter(){
 
-  for (var r = 0; r < image.length; r++) { 
-    for (var c = 0; c < image.length; c++) { 
-    
+  //1c
+  for (var q = 0; q < image.length; q++) { 
+
+    for (var t = 0; t < image[q].length; t++) { 
+
+      //2a
+      var rgbString = image[[q][t]];
+
+      //2b
+      var rgbNumbers = rgbStringToArray(rbgString);
+      
+      //2c 
+      rgbNumbers[RED] += 225;
+      
+      //2d
+      rgbString = rgbArrayToString(rgbNumbers);
+
+      //2e 
+
+      image[[q][t]] = rgbString;
+
     }
     }
     
