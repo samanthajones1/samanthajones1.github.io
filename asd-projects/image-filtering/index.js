@@ -71,10 +71,12 @@ function applyFilter(filterFunction){
 
 // TODO 5: Create the keepInBounds function
 function keepInBounds(num){
-  Math.min(num, 225);
-  Math.max(num, 0);
-    
 
+  var result1 = Math.min(num, 255);
+    return result1;
+    
+  var result2 = Math.max(num, 0);
+    return result2;
 }
 
 console.log(keepInBounds(-30)); // should print 0
