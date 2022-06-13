@@ -44,20 +44,20 @@ function applyFliter(){
     for (var t = 0; t < image[q].length; t++) { 
 
       //2a
-      var rgbString = image[[q][t]];
+      var rgbString = image[q][t];
 
       //2b
-      var rgbNumbers = rgbStringToArray(rbgString);
+      var rgbNumbers = rgbStringToArray(rgbString);
       
       //2c 
-      rgbNumbers[RED] += 225;
+      rgbNumbers[RED] = 225;
       
       //2d
       rgbString = rgbArrayToString(rgbNumbers);
 
       //2e 
 
-      image[[q][t]] = rgbString;
+      image[q][t] = rgbString;
 
     }
     }
