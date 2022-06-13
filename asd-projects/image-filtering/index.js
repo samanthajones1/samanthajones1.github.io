@@ -125,7 +125,7 @@ function reddify(reds){
 
 function decreaseBlue(blues){
 
-  blues[BLUE] = keepInBounds(blues[BLUE] = -50);
+  blues[BLUE] = keepInBounds(blues[BLUE] - 50);
   
 }
 
