@@ -57,6 +57,8 @@ async function partition(arr, left, right){
         while (arr[right].value > pivot) { right-- }
         if (left < right){
             swap(arr[left], arr[right], arr);
+            updateCounter(bubbleCounter);
+            await sleep();
         } 
     }
 
