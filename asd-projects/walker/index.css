@@ -13,26 +13,25 @@ body {
   position: relative
 }
 
-#walker {   /*TODO 1 -- 1b -- change #gameItem to #walker to met HTML change*/
+#walker {  
   background-color: rgb(255, 255, 255);
   width: 70px;
   height: 70px;
   position: absolute;
-  border-radius:50px; /* TODO 1 -- 1c -- create boreder - radius > matching witdht/height */
+  border-radius:50px; 
 
   
 /*   left: 100px; */  /* Uncomment if you want to set a "starting" position */
 /*   top: 100px;  */  /* Uncomment if you want to set a "starting" position */
 }
 
-#runner {   /*TODO 1 -- 1b -- change #gameItem to #walker to met HTML change*/
+#runner {  
   background-color: rgb(255, 0, 170);
   width: 70px;
   height: 70px;
   position: absolute;
-  border-radius:50px; /* TODO 1 -- 1c -- create boreder - radius > matching witdht/height */
-
+  border-radius:50px; 
+  left: 100px;
+  top: 100px;
   
-/*   left: 100px; */  /* Uncomment if you want to set a "starting" position */
-/*   top: 100px;  */  /* Uncomment if you want to set a "starting" position */
 }

@@ -71,6 +71,9 @@ function runProgram(){
     repositionWalker();
     redrawWalker();
 
+    repositionRunner();
+    redrawRunner();
+
   }
   
   /* 
@@ -94,7 +97,8 @@ function runProgram(){
       console.log('DOWN pressed');
     }
 
-      //TODO 6 -- moving 
+      
+    
     if (event.which === walker.LEFT) {
       walkerspeedX = -5;
     } 
@@ -124,6 +128,7 @@ function runProgram(){
     if (event.which === runner.S){
       console.log('S pressed');
     }
+
 
     if (event.which === runner.A) {
       runnerSpeedX = -5;
@@ -164,7 +169,7 @@ function runProgram(){
     }
     
 
-    
+
       /////////// RUNNER //////////////////
     if (event.which === runner.A) {
       runnerSpeedX = 0;
@@ -184,13 +189,6 @@ function runProgram(){
     
   }
 
-
-
-  }
-
-
-  
- 
   ////////////////////////////////////////////////////////////////////////////////
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
@@ -201,14 +199,23 @@ function runProgram(){
     walkerX += walkerspeedX;
     walkerY += walkerspeedY; 
 
+  }
+
+  function repositionRunner(){
+
     runnerX += runnerSpeedX;
     runnerY += runnerSpeedY;
+
   }
 
   function redrawWalker(){
 
     $("#walker").css("left", walkerX);    
     $("#walker").css("top", walkerY);   
+
+  }
+
+  function redrawRunner(){
 
     $("#runner").css("left", runnerX);    
     $("#wrunner").css("top", runnerY);
@@ -223,3 +230,4 @@ function runProgram(){
     $(document).off();
   }
 
+}
