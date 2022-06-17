@@ -54,10 +54,10 @@ async function quickSort(arr, left, right){
 
 async function partition(arr, left, right){
 
-    var pivot = array[Math.floor((right + left)/2)].value;
+    var pivot = arr[Math.floor((right + left)/2)].value;
     while(left < right){
-        while(arr[right].value >= pivot){ left++}
-        while (arr[right].value <= pivot){ right--}
+        while(arr[left].value > pivot){ left++}
+        while (arr[right].value < pivot){ right--}
         if (left < right){
             swap(left, right, arr);
             updateCounter(bubbleCounter);
@@ -75,7 +75,7 @@ function swap(i, j, arr){
     var temp = arr[i];
     arr[i] = arr[j];
     arr[j] = temp;
-
+    drawSwap(arr, i, j);
 }
 
 
