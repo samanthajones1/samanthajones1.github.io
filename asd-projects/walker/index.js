@@ -21,7 +21,7 @@ function runProgram(){
         DOWN: 40,
       };
   
-      var runner = {
+     var runner = {
         A: 65,
         W: 87,
         D: 68, 
@@ -33,20 +33,20 @@ function runProgram(){
       //TODO 4
 
       //POSITIONS 
-      var walkerX = 0; // the x-coordinate 
-      var walkerY = 0; // the y-coordinate 
+      var walkerX = 0; 
+      var walkerY = 0; 
 
       //SPEED 
-      var walkerspeedX = 0 ; // the x-axis
-      var walkerspeedY = 0; // the y-axis
+      var walkerspeedX = 0 ; 
+      var walkerspeedY = 0;
 
     //POSITIONS 
-    var runnerX = 0; // the x-coordinate 
-    var runnerY = 0; // the y-coordinate 
+    var runnerX = 0;
+    var runnerY = 0; 
 
     //SPEED 
-    var runnerspeedX ; // the x-axis
-    var runnerspeedY ; // the y-axis
+    var runnerSpeedX = 0; 
+    var runnerSpeedY = 0; 
 
   // one-time setup
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
@@ -68,7 +68,6 @@ function runProgram(){
   */
   function newFrame() {
 
-    //TODO 6 -- calling the update functions 
     repositionWalker();
     redrawWalker();
 
@@ -78,11 +77,11 @@ function runProgram(){
   Called in response to events.
   */
 
-  /* TODO 2 --- changing the name of the function and adding console.log to check each key -- 2c */
+  
   function handleKeyDown(event) {
     
     /////////////////// WALKER ///////////////////////////////////////
-    if (event.which === walker.LEFT){ //TODO 3 -- getting the press function down for keys 
+    if (event.which === walker.LEFT){ 
       console.log('LEFT pressed');
     }
     if (event.which === walker.UP){
@@ -113,7 +112,7 @@ function runProgram(){
     }
     
     ////////////////// RUNNER ///////////////////////////////
-    if (event.which === runner.A){ //TODO 3 -- getting the press function down for keys 
+    if (event.which === runner.A){ 
       console.log('A pressed');
     }
     if (event.which === runner.W){
@@ -126,21 +125,20 @@ function runProgram(){
       console.log('S pressed');
     }
 
-      //TODO 6 -- moving 
     if (event.which === runner.A) {
-      walkerspeedX = -5;
+      runnerSpeedX = -5;
     } 
     
     if (event.which === runner.W) {
-      walkerspeedY = -5;
+      runnerSpeedY = -5;
     }
     
     if (event.which === runner.D) {
-      walkerspeedX = 5;
+      runnerSpeedX = 5;
     }
     
     if (event.which === runner.S) {
-      walkerspeedY = 5;
+      runnerSpeedY = 5;
     }
     
 
@@ -165,21 +163,23 @@ function runProgram(){
       walkerspeedY = 0;
     }
     
+
+    
       /////////// RUNNER //////////////////
     if (event.which === runner.A) {
-      runnerspeedX = 0;
+      runnerSpeedX = 0;
     } 
     
     if (event.which === runner.W) {
-      runnerspeedY = 0;
+      runnerSpeedY = 0;
     }
     
     if (event.which === runner.D) {
-      runnerspeedX = 0;
+      runnerSpeedX = 0;
     }
     
     if (event.which === runner.S) {
-      runnerspeedY = 0;
+      runnerSpeedY = 0;
     }
     
   }
@@ -198,16 +198,20 @@ function runProgram(){
   //TODO 5 -- 5a - decalring functions 
   function repositionWalker(){
     
-  
-    walkerX += walkerspeedX;// update the position of the box along the x-axis
-    walkerY += walkerspeedY; // update the position of the box along the y-axis
+    walkerX += walkerspeedX;
+    walkerY += walkerspeedY; 
 
+    runnerX += runnerSpeedX;
+    runnerY += runnerSpeedY;
   }
 
   function redrawWalker(){
 
-    $("#walker").css("left", walkerX);    // draw the box in the new location, positionX pixels away from the "left"
-    $("#walker").css("top", walkerY);    // draw the box in the new location, positionX pixels away from the "top"
+    $("#walker").css("left", walkerX);    
+    $("#walker").css("top", walkerY);   
+
+    $("#runner").css("left", runnerX);    
+    $("#wrunner").css("top", runnerY);
 
   }
   
