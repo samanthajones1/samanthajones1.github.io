@@ -28,7 +28,7 @@ Visual Game Components:
             b) when the snake eats the apple, it will apear in a new random location, somwhere within the borad 
 
     What data will you need to manage each game component? For example, in Bouncing Box, the data values were positionX, speedX, and points.
-        a)with snake, the boxes that bulid the snake will all be managed to have the same speed.
+        a)with snake, the boxes that bulid the snake will all be managed to have no speed, aside for the head
         b)The boxes will persumme position of the box infornt of it, moving from the back of the state to the fornt 
         c) APPLES -- will need to random have them appear on the borad, aka position as well as th points 
 
