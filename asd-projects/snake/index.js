@@ -12,30 +12,28 @@ function runProgram(){
   var FRAMES_PER_SECOND_INTERVAL = 1000 / FRAME_RATE;
   
   // Game Item Objects
-
-  var snake0 = {
-    id: '#snake0',
-    x: 20,
-    y: 20,
-    velocityX: 0,
-    velocityY: 0,
-
-  };
+  function factory(id){
   
-  var tail = {
-    id: ' #snake',
-    x: 20,
-    y:20
-  };
-
+    var gameObject = {};
+    
+          gameObject.id = id;
+          gameObject.x = parseFloat($(id).css('left'));
+          gameObject.y = parseFloat($(id).css('top'));
+          gameObject.width = $(id).width();
+          gameObject.height = $(id).height();
+          gameObject.speedX = 0;
+          gameObject.speedY = 0;
+    
+    return gameObject;
+    
+  }
+  
+  var head = factory('#snake0');
+  var tail = factory('#snake');
+  var apple = factory('#apple');
   snakeArray = [head, tail];
 
-  var apple = {
-    id: '#apple',
-    x: 20,
-    y: 20
-  };
-
+ 
 
   // one-time setup
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
