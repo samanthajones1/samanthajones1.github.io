@@ -1,0 +1,55 @@
+User Story / Gameplay
+
+    Describe the gameplay
+        a)Snake is a box that moves alround collectting apples to earn more boxes becoming a snake - like line of boxes 
+
+    What are the conditions when the game begins?
+        a)At the beginning, there will be an singluar box that moves around
+        b)The movment keys will be the arrow kids to get the gaqme started 
+        c)Once you start movinging -- you cannot stop 
+        
+    Does the game have an end? If so, what are the conditions for when it ends?
+        a)In order to win the game, you have to eat enough apples to make the snake long enough to th epoint, that there is no more space on the bored for thr snake yo grow 
+        b)if the snake comes to the point, the games will end, and you will win
+        c)Another end is if the snake either runs into itself, or the borader of the borad -- that will kill the ssnake 
+
+    What ifs will there be?
+        a) if the snake will run into the wall
+        b) if the snake runs into itself
+
+Visual Game Components:
+
+    What are the visual game components? For example, in Bouncing Box, the game components were the board and the box.
+        a) the back goround as well as the borad will be costumize -- through css
+            Which will be static? (the board)
+                a)the box will difenefity be static for it will not move
+            Which will be animated? (the box)
+                b)the snake will be animated due to the moving of boxes, and the addition of boxes 
+            b) when the snake eats the apple, it will apear in a new random location, somwhere within the borad 
+
+    What data will you need to manage each game component? For example, in Bouncing Box, the data values were positionX, speedX, and points.
+        a)with snake, the boxes that bulid the snake will all be managed to have the same speed.
+        b)The boxes will persumme position of the box infornt of it, moving from the back of the state to the fornt 
+        c) APPLES -- will need to random have them appear on the borad, aka position as well as th points 
+
+Events / Logic
+
+    What events will occur in this game? (timer events, keyboard events, clicking events?)
+        a) there will be no timer
+        b) there will be points --- the game ends after the snake has filled up the box 
+        c)there will be keyboard events --- keyUP and keyDOWN --- like walker -- to make the snake move 
+            i) this will be via arrow keys 
+
+    How do those events affect the data of the program?
+        a) the points will tell you how high your score is and how far you have come 
+        b) the key event will allow mnovement to actually play the game 
+
+    For each "event", write out the high-level logic of what will happen. It is better (and tricky) to be as specific as you can while remaining high-level!
+        a) For the points, it will be a function that when the apple is collected, it will rise the score.  
+            function increaseScore(){} -- with this function, there will be a point variable that will increase evertime an apple is consume
+            ----how will the program dectect that an apple was consumed -- throught collison??
+        b) like the walker project --- there will be keyUp and keyDown functions that move the snake when a key is pressed down
+            the key numbers will need to be used for this function, as well as handleerevents, and event.which 
+        c) the apples will need to reappear in a different location after it is consumed -
+            math.random will need to be used, and in order to keep it in the board i will set boundaries for it
+          

@@ -1,0 +1,38 @@
+
+body {
+  background: url('https://wallpaperaccess.com/full/109427.jpg');
+}
+
+#board {
+  width: 440px;
+  height: 440px;
+  left: 730px;
+  top: 200px;
+  border: 1px solid white;
+  background-color: black;
+  position: relative;
+}
+
+#snake0 {
+  background-color: teal;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  
+} 
+/*   left: 100px; */  /* Uncomment if you want to set a "starting" position */
+/*   top: 100px;  */  /* Uncomment if you want to set a "starting" position */
+
+#snake {
+  background-color: green;
+  width: 50px;
+  height: 50px;
+  position: absolute;
+}
+
+#apple {
+  background-color: red;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+}
