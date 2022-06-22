@@ -13,22 +13,33 @@ function runProgram(){
   
   // Game Item Objects
 
-  var snakeArr = [
-    {
-      id: '#snake0' 
-    }
-  ];
+  var snake0 = {
+    id: '#snake0',
+    x: 20,
+    y: 20,
+    velocityX: 0,
+    velocityY: 0,
 
-  var control = {
-    LEFT: 37,
-    UP: 38,
-    RIGHT: 39, 
-    DOWN: 40,
   };
+  
+  var tail = {
+    id: ' #snake',
+    x: 20,
+    y:20
+  };
+
+  snakeArray = [head, tail];
+
+  var apple = {
+    id: '#apple',
+    x: 20,
+    y: 20
+  };
+
 
   // one-time setup
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
-  $(document).on('eventType', handleEvent);                           // change 'eventType' to the type of event you want to handle
+  $(document).on('KeyDown', handleKeyDown);                           // change 'eventType' to the type of event you want to handle
 
   ////////////////////////////////////////////////////////////////////////////////
   ///////////////////////// CORE LOGIC ///////////////////////////////////////////
@@ -46,14 +57,14 @@ function runProgram(){
   /* 
   Called in response to events.
   */
-  function handleEvent(event) {
+  function handleKeyDown(event) {
+
 
   }
 
   ////////////////////////////////////////////////////////////////////////////////
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
-
   
   function endGame() {
     // stop the interval timer
