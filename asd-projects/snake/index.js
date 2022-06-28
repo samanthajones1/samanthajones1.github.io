@@ -29,9 +29,21 @@ function runProgram(){
   }
   
   var head = factory('#snake0');
+
+  var headX = 0;
+  var headY = 0;
+  var headSpeedX = 0;
+  var headSpeedY = 0;
   var tail = factory('#snake');
   var apple = factory('#apple');
   snakeArray = [head, tail];
+
+  var slither = {
+    LEFT: 37,
+    UP: 38,
+    RIGHT: 39, 
+    DOWN: 40,
+  };
 
  
 
@@ -49,7 +61,8 @@ function runProgram(){
   */
   function newFrame() {
     
-
+    repositionhead();
+    redrawhead();
   }
   
   /* 
@@ -57,12 +70,54 @@ function runProgram(){
   */
   function handleKeyDown(event) {
 
+    if (event.which === slither.LEFT){ 
+      console.log('LEFT pressed');
+    }
+    if (event.which === slither.UP){
+      console.log('UP pressed');
+    }
+    if (event.which === slither.RIGHT){
+      console.log('RIGHT pressed');
+    }
+    if (event.which === slither.DOWN){
+      console.log('DOWN pressed');
+    }
 
+      
+    
+    if (event.which === slither.LEFT) {
+      headSpeedX = -20;
+    } 
+    
+    if (event.which === slither.UP) {
+      headSpeedY = -20;
+    }
+    
+    if (event.which === slither.RIGHT) {
+      headSpeedX = 20;
+    }
+    
+    if (event.which === slither.DOWN) {
+      headSpeedY = 20;
+    }
   }
-
   ////////////////////////////////////////////////////////////////////////////////
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
+
+  function repositionhead(){
+    
+    headX += headSpeedX;
+    headY += headSpeedY; 
+
+  }
+
+  function redrawhead(){
+
+    $("#snake0").css("left", headX);    
+    $("#snake0").css("top", headY);   
+
+  }
   
   function endGame() {
     // stop the interval timer
@@ -72,4 +127,4 @@ function runProgram(){
     $(document).off();
   }
   
-}
+  }

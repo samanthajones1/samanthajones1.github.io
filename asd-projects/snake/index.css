@@ -15,24 +15,29 @@ body {
 
 #snake0 {
   background-color: teal;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   position: absolute;
-  
+  left: 20px;
+  top: 20px
 } 
 /*   left: 100px; */  /* Uncomment if you want to set a "starting" position */
 /*   top: 100px;  */  /* Uncomment if you want to set a "starting" position */
 
-#snake {
+.snake {
   background-color: green;
-  width: 50px;
-  height: 50px;
+  width: 40px;
+  height: 40px;
   position: absolute;
+  left: 20px;
+  top: 20px;
 }
 
 #apple {
   background-color: red;
-  width: 20px;
-  height: 20px;
+  width: 40px;
+  height: 40px;
   position: absolute;
+  left: 20px;
+  top: 20px;
 }
