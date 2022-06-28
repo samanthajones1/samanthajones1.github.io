@@ -30,11 +30,7 @@ function runProgram(){
   
   var head = factory('#snake0');
 
-  var headX = 0;
-  var headY = 0;
-  var headSpeedX = 0;
-  var headSpeedY = 0;
-  var tail = factory('#snake');
+  var tail = factory('.snake');
   var apple = factory('#apple');
   snakeArray = [head, tail];
 
@@ -49,7 +45,7 @@ function runProgram(){
 
   // one-time setup
   var interval = setInterval(newFrame, FRAMES_PER_SECOND_INTERVAL);   // execute newFrame every 0.0166 seconds (60 Frames per second)
-  $(document).on('KeyDown', handleKeyDown);                           // change 'eventType' to the type of event you want to handle
+  $(document).on('keydown', handleKeyDown);                           // change 'eventType' to the type of event you want to handle
 
   ////////////////////////////////////////////////////////////////////////////////
   ///////////////////////// CORE LOGIC ///////////////////////////////////////////
@@ -86,20 +82,20 @@ function runProgram(){
       
     
     if (event.which === slither.LEFT) {
-      headSpeedX = -20;
+      head.speedX = -2;
     } 
     
     if (event.which === slither.UP) {
-      headSpeedY = -20;
-    }
+      head.speedY = -2;
+    } 
     
     if (event.which === slither.RIGHT) {
-      headSpeedX = 20;
-    }
+      head.speedX = 2;
+    } 
     
     if (event.which === slither.DOWN) {
-      headSpeedY = 20;
-    }
+      head.speedY = 2;
+    } 
   }
   ////////////////////////////////////////////////////////////////////////////////
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
@@ -107,15 +103,15 @@ function runProgram(){
 
   function repositionhead(){
     
-    headX += headSpeedX;
-    headY += headSpeedY; 
+    head.x += head.speedX;
+    head.y += head.speedY; 
 
   }
 
   function redrawhead(){
 
-    $("#snake0").css("left", headX);    
-    $("#snake0").css("top", headY);   
+    $("#snake0").css("left", head.x);    
+    $("#snake0").css("top", head.y);   
 
   }
   
