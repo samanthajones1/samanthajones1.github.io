@@ -57,6 +57,7 @@ function runProgram(){
   */
   function newFrame() {
     
+    tailFollow();
     repositionhead(head);
     redrawitem("#snake0", head);
     redrawitem("#apple", apple);
@@ -109,19 +110,20 @@ function runProgram(){
 
 
   }
+
+  function tailFollow(){
+    for(var i = snakeArray.length - 1; i > 0; i--){
+          snakeArray[i].x = snakeArray[i-1].x;
+          snakeArray[i].y = snakeArray[i-1].y;
+          redrawitem();
+    }
+}
+
   ////////////////////////////////////////////////////////////////////////////////
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
 
-    function tailFollow(){
-        for(var i = snakeArray.length - 1; i > 0; i--){
-              snakeArray.push();
-        }
-
-
-
-    }
-
+    
     function score(){
 
 
@@ -133,7 +135,7 @@ function runProgram(){
         apple.x = Math.floor(Math.random() * (boardWidth - squareWidth) / squareWidth) * squareWidth;
         apple.y = Math.floor(Math.random() * (boardWidth - squareWidth) / squareWidth) * squareWidth;
         managePieceMaking();
-        tailFollow();
+       
       }
 
     }
@@ -172,13 +174,6 @@ function runProgram(){
 
     $(id).css("left", obj.x);    
     $(id).css("top", obj.y);   
-
-
-  }
-
-  function repositionTail(index){
-
-
 
 
   }
