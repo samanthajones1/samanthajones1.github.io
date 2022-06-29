@@ -15,8 +15,8 @@ body {
 
 #snake0 {
   background-color: teal;
-  width: 40px;
-  height: 40px;
+  width: 20px;
+  height: 20px;
   position: absolute;
   left: 20px;
   top: 20px
@@ -26,8 +26,8 @@ body {
 
 .snake {
   background-color: green;
-  width: 40px;
-  height: 40px;
+  width: 20px;
+  height: 20px;
   position: absolute;
   left: 20px;
   top: 20px;
@@ -35,9 +35,20 @@ body {
 
 #apple {
   background-color: red;
-  width: 40px;
-  height: 40px;
+  width: 20px;
+  height: 20px;
   position: absolute;
   left: 20px;
   top: 20px;
+}
+
+#score {
+  
+  background-color: red;
+  width: 20px;
+  height: 20px;
+  position: absolute;
+  left: 20px;
+  top: 20px;
+
 }

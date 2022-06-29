@@ -33,6 +33,7 @@ function runProgram(){
   var tail = factory('.snake');
   var apple = factory('#apple');
   snakeArray = [head, tail];
+  var score = [];
 
   var slither = {
     LEFT: 37,
@@ -57,7 +58,7 @@ function runProgram(){
   */
   function newFrame() {
     
-    repositionhead();
+    repositionhead(head);
     redrawhead();
   }
   
@@ -92,19 +93,52 @@ function runProgram(){
     if (event.which === slither.RIGHT) {
       head.speedX = 2;
     } 
+  
     
     if (event.which === slither.DOWN) {
       head.speedY = 2;
     } 
+
+    if (doCollide(head, apple)) {
+      console.log(true);
+  } else {
+      console.log(false);
+  }
+
+
   }
   ////////////////////////////////////////////////////////////////////////////////
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
 
-  function repositionhead(){
+  function doCollsion(object1, object2){
+
+    object1.leftX = object1.x;
+    object1.topY = object1.y;
+    object1.rightX = object1.x + $(object1.id).width();
+    object1.bottomY = object1.y + $(object1.id).height();;
+  
+    object2.leftX = object2.x;
+    object2.topY =  object2.y;
+    object2.rightX =  object2.x + $(object2.id).width();
+    object2.bottomY =  object2.y + $( object2.id).height();;
+
+	
+	if (object1.rightX >  object2.leftX && object1.leftX <  object2.rightX &&
+    object1.bottomY > object2.topY && object1.topY < object2.bottomY){
+      return true;
+    } else {
+      return false;
+    }	
+
+
+  }
+
+
+  function repositionhead(object){
     
-    head.x += head.speedX;
-    head.y += head.speedY; 
+    object.x += object.speedX;
+    object.y += object.speedY; 
 
   }
 
@@ -115,6 +149,8 @@ function runProgram(){
 
   }
   
+ 
+
   function endGame() {
     // stop the interval timer
     clearInterval(interval);
