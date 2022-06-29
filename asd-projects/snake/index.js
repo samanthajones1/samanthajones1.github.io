@@ -8,7 +8,7 @@ function runProgram(){
   ////////////////////////////////////////////////////////////////////////////////
 
   // Constant Variables
-  var FRAME_RATE = 60;
+  var FRAME_RATE = 10;
   var FRAMES_PER_SECOND_INTERVAL = 1000 / FRAME_RATE;
   
   // Game Item Objects
@@ -32,7 +32,7 @@ function runProgram(){
 
   var tail = factory('.snake');
   var apple = factory('#apple');
-  snakeArray = [head, tail];
+  snakeArray = [head];
   var score = [];
   var boardWidth = $('#board').width();
   var squareWidth = apple.width;
@@ -61,8 +61,10 @@ function runProgram(){
   function newFrame() {
     
     repositionhead(head);
-    redrawitem();
+    redrawitem("#snake0", head);
+    redrawitem("#apple", apple);
     checkCollison();
+    managePieceMaking();
   }
   
   /* 
@@ -124,7 +126,27 @@ function runProgram(){
 
     }
      
+    function managePieceMaking(){
+
+      var newId = getNextId();
+      createElement(newId);
+      var newPiece = factory("#" + newId);
+      snakeArray.push(newPiece);
+
+    }
+   
+    function getNextId(){
+      return "snake" + snakeArray.length;
+    }
+    
   
+    function createElement(newId){
+      $('<div>').attr('id', newId)
+                .addClass('snake')
+                .appendTo("#board");
+    }
+    
+    
 
 
   function repositionhead(object){
@@ -134,10 +156,10 @@ function runProgram(){
 
   }
 
-  function redrawitem(){
+  function redrawitem(id, obj){
 
-    $("#snake0").css("left", head.x);    
-    $("#snake0").css("top", head.y);   
+    $(id).css("left", obj.x);    
+    $(id).css("top", obj.y);   
 
 
   }
