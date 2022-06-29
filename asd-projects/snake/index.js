@@ -60,6 +60,7 @@ function runProgram(){
     
     repositionhead(head);
     redrawhead();
+    checkCollison();
   }
   
   /* 
@@ -83,27 +84,27 @@ function runProgram(){
       
     
     if (event.which === slither.LEFT) {
-      head.speedX = -2;
+      head.speedX = -20;
+      head.speedY = 0;
     } 
     
     if (event.which === slither.UP) {
-      head.speedY = -2;
+      head.speedY = -20;
+      head.speedX = 0;
     } 
     
     if (event.which === slither.RIGHT) {
-      head.speedX = 2;
+      head.speedX = 20;
+      head.speedY = 0;
+
     } 
   
     
     if (event.which === slither.DOWN) {
-      head.speedY = 2;
-    } 
+      head.speedY = 20;
+      head.speedX = 0;
 
-    if (doCollide(head, apple)) {
-      console.log(true);
-  } else {
-      console.log(false);
-  }
+    } 
 
 
   }
@@ -111,28 +112,17 @@ function runProgram(){
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
 
-  function doCollsion(object1, object2){
 
-    object1.leftX = object1.x;
-    object1.topY = object1.y;
-    object1.rightX = object1.x + $(object1.id).width();
-    object1.bottomY = object1.y + $(object1.id).height();;
+    function checkCollison(){
+
+      if(head.x === apple.x && head.y === apple.y){
+        apple.x = Math.floor(Math.random() * (boardWidth - squareWidth) / squareWidth) * squareWidth;
+        apple.y = Math.floor(Math.random() * (boardWidth - squareWidth) / squareWidth) * squareWidth;
+      }
+
+    }
+     
   
-    object2.leftX = object2.x;
-    object2.topY =  object2.y;
-    object2.rightX =  object2.x + $(object2.id).width();
-    object2.bottomY =  object2.y + $( object2.id).height();;
-
-	
-	if (object1.rightX >  object2.leftX && object1.leftX <  object2.rightX &&
-    object1.bottomY > object2.topY && object1.topY < object2.bottomY){
-      return true;
-    } else {
-      return false;
-    }	
-
-
-  }
 
 
   function repositionhead(object){
