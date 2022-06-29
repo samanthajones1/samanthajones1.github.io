@@ -29,8 +29,6 @@ function runProgram(){
   }
   
   var head = factory('#snake0');
-
-  var tail = factory('.snake');
   var apple = factory('#apple');
   snakeArray = [head];
   var boardWidth = $('#board').width();
@@ -116,8 +114,8 @@ function runProgram(){
   ////////////////////////////////////////////////////////////////////////////////
 
     function tailFollow(){
-        for(var i = snakeArray.length; i > 0; i--){
-              snakeArray.push(tail);
+        for(var i = snakeArray.length - 1; i > 0; i--){
+              snakeArray.push();
         }
 
 
@@ -174,6 +172,13 @@ function runProgram(){
 
     $(id).css("left", obj.x);    
     $(id).css("top", obj.y);   
+
+
+  }
+
+  function repositionTail(index){
+
+
 
 
   }

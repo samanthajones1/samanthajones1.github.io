@@ -42,13 +42,10 @@ body {
   top: 20px;
 }
 
-#score {
+.score {
   
   background-color: red;
-  width: 20px;
-  height: 20px;
-  position: absolute;
-  left: 20px;
-  top: 20px;
+  left: 400px;
+  top: -20px;
 
 }
