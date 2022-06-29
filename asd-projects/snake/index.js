@@ -34,6 +34,7 @@ function runProgram(){
   var apple = factory('#apple');
   snakeArray = [head, tail];
   var score = [];
+  var boardWidth = $('#board').width();
 
   var slither = {
     LEFT: 37,
