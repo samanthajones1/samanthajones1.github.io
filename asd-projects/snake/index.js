@@ -35,6 +35,7 @@ function runProgram(){
   snakeArray = [head, tail];
   var score = [];
   var boardWidth = $('#board').width();
+  var squareWidth = apple.width;
 
   var slither = {
     LEFT: 37,
@@ -60,7 +61,7 @@ function runProgram(){
   function newFrame() {
     
     repositionhead(head);
-    redrawhead();
+    redrawitem();
     checkCollison();
   }
   
@@ -133,10 +134,11 @@ function runProgram(){
 
   }
 
-  function redrawhead(){
+  function redrawitem(){
 
     $("#snake0").css("left", head.x);    
     $("#snake0").css("top", head.y);   
+
 
   }
   
