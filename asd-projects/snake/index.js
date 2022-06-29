@@ -33,7 +33,6 @@ function runProgram(){
   var tail = factory('.snake');
   var apple = factory('#apple');
   snakeArray = [head];
-  var score = [];
   var boardWidth = $('#board').width();
   var squareWidth = apple.width;
 
@@ -64,7 +63,7 @@ function runProgram(){
     redrawitem("#snake0", head);
     redrawitem("#apple", apple);
     checkCollison();
-    managePieceMaking();
+
   }
   
   /* 
@@ -116,12 +115,27 @@ function runProgram(){
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
 
+    function tailFollow(){
+        for(var i = snakeArray.length; i > 0; i--){
+              snakeArray.push(tail);
+        }
+
+
+
+    }
+
+    function score(){
+
+
+    }
 
     function checkCollison(){
 
       if(head.x === apple.x && head.y === apple.y){
         apple.x = Math.floor(Math.random() * (boardWidth - squareWidth) / squareWidth) * squareWidth;
         apple.y = Math.floor(Math.random() * (boardWidth - squareWidth) / squareWidth) * squareWidth;
+        managePieceMaking();
+        tailFollow();
       }
 
     }
