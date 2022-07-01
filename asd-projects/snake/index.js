@@ -34,7 +34,7 @@ function runProgram(){
   var boardWidth = $('#board').width();
   var boardHeight =  $('#board').height();
   var squareWidth = apple.width;
- 
+  var score = $('.score');
 
   var slither = {
     LEFT: 37,
@@ -127,10 +127,7 @@ function runProgram(){
   ////////////////////////////////////////////////////////////////////////////////
 
     
-    function score(){
-
-
-    }
+  
 
     function checkAppleCollison(){
 
@@ -138,17 +135,22 @@ function runProgram(){
         apple.x = Math.floor(Math.random() * (boardWidth - squareWidth) / squareWidth) * squareWidth;
         apple.y = Math.floor(Math.random() * (boardWidth - squareWidth) / squareWidth) * squareWidth;
         managePieceMaking();
+        score++;
       }
 
     }
 
     function wallCollsion(){
-      if(head.x > boardWidth || head.y > boardHeight){
-        endgame();
-
+      if(head.x >= boardWidth || head.y >= boardHeight){
+        endGame();
     }
+
+      if(head.x <= 0 || head.y <= 0){
+        endGame();
+      }
+    
   }
-  
+
     function managePieceMaking(){
 
       var newId = getNextId();

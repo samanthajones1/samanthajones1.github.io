@@ -3,6 +3,17 @@ body {
   background: url('https://wallpaperaccess.com/full/109427.jpg');
 }
 
+.score {
+  background-color: rgb(255, 255, 255);
+  position: absolute;
+  width: 40px;
+  height: 40px;
+  left: 400px;
+  top: -40px;
+
+}
+
+
 #board {
   width: 440px;
   height: 440px;
@@ -42,10 +53,3 @@ body {
   top: 20px;
 }
 
-.score {
-  
-  background-color: red;
-  left: 400px;
-  top: -20px;
-
-}
