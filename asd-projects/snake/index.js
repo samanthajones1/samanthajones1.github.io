@@ -130,9 +130,7 @@ function runProgram(){
 
     function collsionWithSnake(){
       for(var i = snakeArray.length - 1; i > 0; i--){
-        snakeArray[i].x = snakeArray[i-1].x;
-          snakeArray[i].y = snakeArray[i-1].y;
-          redrawitem(snakeArray[i].id, snakeArray[i]);
+      
       if(head.x === snakeArray[i].x && head.y === snakeArray[i].y){
         endGame();
     }
