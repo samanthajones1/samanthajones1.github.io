@@ -115,7 +115,7 @@ function runProgram(){
     for(var i = snakeArray.length - 1; i > 0; i--){
           snakeArray[i].x = snakeArray[i-1].x;
           snakeArray[i].y = snakeArray[i-1].y;
-          redrawitem();
+          redrawitem('.snake', snakeArray[i]);
     }
 }
 
