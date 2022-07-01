@@ -32,7 +32,9 @@ function runProgram(){
   var apple = factory('#apple');
   snakeArray = [head];
   var boardWidth = $('#board').width();
+  var boardHeight =  $('#board').height();
   var squareWidth = apple.width;
+ 
 
   var slither = {
     LEFT: 37,
@@ -61,7 +63,8 @@ function runProgram(){
     repositionhead(head);
     redrawitem("#snake0", head);
     redrawitem("#apple", apple);
-    checkCollison();
+    checkAppleCollison();
+    wallCollsion();
 
   }
   
@@ -70,7 +73,7 @@ function runProgram(){
   */
   function handleKeyDown(event) {
 
-    if (event.which === slither.LEFT){ 
+    if (event.which === slither.LEFT ){ 
       console.log('LEFT pressed');
     }
     if (event.which === slither.UP){
@@ -85,24 +88,24 @@ function runProgram(){
 
       
     
-    if (event.which === slither.LEFT) {
+    if (event.which === slither.LEFT && head.speedX !== 20) {
       head.speedX = -20;
       head.speedY = 0;
     } 
     
-    if (event.which === slither.UP) {
+    if (event.which === slither.UP && head.speedY !== 20) {
       head.speedY = -20;
       head.speedX = 0;
     } 
     
-    if (event.which === slither.RIGHT) {
+    if (event.which === slither.RIGHT && head.speedX !== -20) {
       head.speedX = 20;
       head.speedY = 0;
 
     } 
   
     
-    if (event.which === slither.DOWN) {
+    if (event.which === slither.DOWN && head.speedY !== -20) {
       head.speedY = 20;
       head.speedX = 0;
 
@@ -115,7 +118,7 @@ function runProgram(){
     for(var i = snakeArray.length - 1; i > 0; i--){
           snakeArray[i].x = snakeArray[i-1].x;
           snakeArray[i].y = snakeArray[i-1].y;
-          redrawitem('.snake', snakeArray[i]);
+          redrawitem(snakeArray[i].id, snakeArray[i]);
     }
 }
 
@@ -129,17 +132,23 @@ function runProgram(){
 
     }
 
-    function checkCollison(){
+    function checkAppleCollison(){
 
       if(head.x === apple.x && head.y === apple.y){
         apple.x = Math.floor(Math.random() * (boardWidth - squareWidth) / squareWidth) * squareWidth;
         apple.y = Math.floor(Math.random() * (boardWidth - squareWidth) / squareWidth) * squareWidth;
         managePieceMaking();
-       
       }
 
     }
-     
+
+    function wallCollsion(){
+      if(head.x > boardWidth || head.y > boardHeight){
+        endgame();
+
+    }
+  }
+  
     function managePieceMaking(){
 
       var newId = getNextId();
