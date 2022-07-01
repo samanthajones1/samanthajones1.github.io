@@ -34,7 +34,7 @@ function runProgram(){
   var boardWidth = $('#board').width();
   var boardHeight =  $('#board').height();
   var squareWidth = apple.width;
-  var score = $('.score');
+  var score = 0;
 
   var slither = {
     LEFT: 37,
@@ -65,6 +65,7 @@ function runProgram(){
     redrawitem("#apple", apple);
     checkAppleCollison();
     wallCollsion();
+    collsionWithSnake();
 
   }
   
@@ -119,6 +120,7 @@ function runProgram(){
           snakeArray[i].x = snakeArray[i-1].x;
           snakeArray[i].y = snakeArray[i-1].y;
           redrawitem(snakeArray[i].id, snakeArray[i]);
+
     }
 }
 
@@ -126,7 +128,16 @@ function runProgram(){
   ////////////////////////// HELPER FUNCTIONS ////////////////////////////////////
   ////////////////////////////////////////////////////////////////////////////////
 
-    
+    function collsionWithSnake(){
+      for(var i = snakeArray.length - 1; i > 0; i--){
+        snakeArray[i].x = snakeArray[i-1].x;
+          snakeArray[i].y = snakeArray[i-1].y;
+          redrawitem(snakeArray[i].id, snakeArray[i]);
+      if(head.x === snakeArray[i].x && head.y === snakeArray[i].y){
+        endGame();
+    }
+    }
+    }
   
 
     function checkAppleCollison(){
@@ -136,6 +147,8 @@ function runProgram(){
         apple.y = Math.floor(Math.random() * (boardWidth - squareWidth) / squareWidth) * squareWidth;
         managePieceMaking();
         score++;
+        $(".score").text(score);
+
       }
 
     }
@@ -145,7 +158,7 @@ function runProgram(){
         endGame();
     }
 
-      if(head.x <= 0 || head.y <= 0){
+      if(head.x < 0 || head.y < 0){
         endGame();
       }
     
